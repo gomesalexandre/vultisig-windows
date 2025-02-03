@@ -8,20 +8,20 @@ import { GetVaultFolders } from '../../../../wailsjs/go/storage/Store';
 export const vaultFoldersQueryKey = ['vaultFolders'];
 
 export const vaultFoldersQueryFn = async () => {
-  const result = await GetVaultFolders();
+  return []
 
-  if (result === null) {
-    return [];
-  }
+  const result = await GetVaultFolders();
 
   return sortEntitiesWithOrder(result);
 };
 
 export const useVaultFoldersQuery = () => {
-  return useQuery({
-    queryKey: vaultFoldersQueryKey,
-    queryFn: vaultFoldersQueryFn,
-  });
+  return {
+    data: [],
+    isLoading: false,
+    isPending: false,
+    error: null,
+  };
 };
 
 export const useVaultFolders = () => {

@@ -8,20 +8,21 @@ import { sortEntitiesWithOrder } from '@lib/utils/entities/EntityWithOrder';
 export const vaultsQueryKey = ['vaults'];
 
 export const vaultsQueryFn = async () => {
-  const result = await GetVaults();
 
-  if (result === null) {
-    return [];
-  }
+  return []
+
+  const result = await GetVaults();
 
   return sortEntitiesWithOrder(result);
 };
 
 export const useVaultsQuery = () => {
-  return useQuery({
-    queryKey: vaultsQueryKey,
-    queryFn: vaultsQueryFn,
-  });
+  return {
+    data: [],
+    isLoading: false,
+    isPending: false,
+    error: null,
+  };
 };
 
 export const useVaults = () => {

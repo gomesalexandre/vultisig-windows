@@ -5,6 +5,8 @@
     "./**"
   ],
   "scripts": {
+    "dev:desktop": "wails dev",
+    "dev:desktop:vite": "yarn workspace @clients/desktop dev",
     "build:desktop": "yarn workspace @clients/desktop build",
     "build:extension": "yarn workspace @clients/extension build",
     "dev:extension": "yarn workspace @clients/extension dev"
